@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08EB1FF4-DAC9-470B-8BA5-FC802B9A147C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotSpatial.Projections, Version=1.9.0.0, Culture=neutral, PublicKeyToken=272632bddd08a38b, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotSpatial.Projections.1.9\lib\net40-Client\DotSpatial.Projections.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Amazon, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Amazon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Apple, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Apple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Blackberry, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Blackberry.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Core, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Firefox, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Firefox.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Google, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Windows, Version=4.0.10.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.4.0.10\lib\net45\PushSharp.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.6\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.6\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Z.EntityFramework.Plus.EF6, Version=1.7.15.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.EntityFramework.Plus.EF6.1.7.15\lib\net45\Z.EntityFramework.Plus.EF6.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomModels\AccountViewModels.cs" />
+    <Compile Include="CustomModels\Enumeration.cs" />
+    <Compile Include="CustomModels\NotificationModel.cs" />
+    <Compile Include="DBModels\Admin.cs" />
+    <Compile Include="DBModels\BasePostLanguages.cs" />
+    <Compile Include="DBModels\Languages.cs" />
+    <Compile Include="DBModels\GroupCategories.cs" />
+    <Compile Include="DBModels\NotificationCategory.cs" />
+    <Compile Include="DBModels\NotificationType.cs" />
+    <Compile Include="DBModels\NotificationTypeScreenMapping.cs" />
+    <Compile Include="DBModels\PostLanguageCodes.cs" />
+    <Compile Include="DBModels\RiskLevelRange.cs" />
+    <Compile Include="DBModels\AdminNotifications.cs" />
+    <Compile Include="DBModels\AdminTokens.cs" />
+    <Compile Include="DBModels\AppRatings.cs" />
+    <Compile Include="DBModels\FAQ.cs" />
+    <Compile Include="DBModels\MuteUser.cs" />
+    <Compile Include="DBModels\PollOptions.cs" />
+    <Compile Include="DBModels\PollOptionVote.cs" />
+    <Compile Include="DBModels\PostCategories.cs" />
+    <Compile Include="DBModels\MediaUserViews.cs" />
+    <Compile Include="DBModels\ReportUser.cs" />
+    <Compile Include="DBModels\Comment.cs" />
+    <Compile Include="DBModels\GroupMember.cs" />
+    <Compile Include="DBModels\HideAllPost.cs" />
+    <Compile Include="DBModels\HidePost.cs" />
+    <Compile Include="DBModels\FollowFollower.cs" />
+    <Compile Include="DBModels\BlockUser.cs" />
+    <Compile Include="DBModels\Store.cs" />
+    <Compile Include="DBModels\UserLanguageMapping.cs" />
+    <Compile Include="Migrations\201912301642505_SyncDatabase.cs" />
+    <Compile Include="Migrations\201912301642505_SyncDatabase.Designer.cs">
+      <DependentUpon>201912301642505_SyncDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001071458416_notificationtableschanges.cs" />
+    <Compile Include="Migrations\202001071458416_notificationtableschanges.Designer.cs">
+      <DependentUpon>202001071458416_notificationtableschanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001141125107_altertablenotification.cs" />
+    <Compile Include="Migrations\202001141125107_altertablenotification.Designer.cs">
+      <DependentUpon>202001141125107_altertablenotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202001171429306_syncdb.cs" />
+    <Compile Include="Migrations\202001171429306_syncdb.Designer.cs">
+      <DependentUpon>202001171429306_syncdb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002101429072_addtableNotificationTypeScreenMapping.cs" />
+    <Compile Include="Migrations\202002101429072_addtableNotificationTypeScreenMapping.Designer.cs">
+      <DependentUpon>202002101429072_addtableNotificationTypeScreenMapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002101621120_NotificationTablesColumnadded.cs" />
+    <Compile Include="Migrations\202002101621120_NotificationTablesColumnadded.Designer.cs">
+      <DependentUpon>202002101621120_NotificationTablesColumnadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002101638411_NotificationTablesColumnModified.cs" />
+    <Compile Include="Migrations\202002101638411_NotificationTablesColumnModified.Designer.cs">
+      <DependentUpon>202002101638411_NotificationTablesColumnModified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005022203239_RemovedEntities.cs" />
+    <Compile Include="Migrations\202005022203239_RemovedEntities.Designer.cs">
+      <DependentUpon>202005022203239_RemovedEntities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005040001503_RemovedEntities1.cs" />
+    <Compile Include="Migrations\202005040001503_RemovedEntities1.Designer.cs">
+      <DependentUpon>202005040001503_RemovedEntities1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="DBModels\TopFollowerLog.cs" />
+    <Compile Include="DBModels\ReportPost.cs" />
+    <Compile Include="DBModels\ActivityLog.cs" />
+    <Compile Include="DBModels\TurnOffNotification.cs" />
+    <Compile Include="DBModels\TrendLog.cs" />
+    <Compile Include="DBModels\Share.cs" />
+    <Compile Include="DBModels\Media.cs" />
+    <Compile Include="DBModels\Interest.cs" />
+    <Compile Include="DBModels\Like.cs" />
+    <Compile Include="DBModels\Group.cs" />
+    <Compile Include="DBContext\RiscoContext.cs" />
+    <Compile Include="DBModels\ContactUs.cs" />
+    <Compile Include="DBModels\ErrorLog.cs" />
+    <Compile Include="DBModels\ForgotPasswordToken.cs" />
+    <Compile Include="DBModels\JsonCustomDateTimeConverter .cs" />
+    <Compile Include="DBModels\Notification.cs" />
+    <Compile Include="DBModels\RefreshTokens.cs" />
+    <Compile Include="DBModels\Settings.cs" />
+    <Compile Include="DBModels\Post.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DBModels\Status.cs" />
+    <Compile Include="DBModels\Token.cs" />
+    <Compile Include="DBModels\User.cs" />
+    <Compile Include="DBModels\UserAddress.cs" />
+    <Compile Include="DBModels\UserDevices.cs" />
+    <Compile Include="DBModels\UserNotificationSetting.cs" />
+    <Compile Include="DBModels\UserProfiles.cs" />
+    <Compile Include="DBModels\UserRatings.cs" />
+    <Compile Include="DBModels\UserSubscriptions.cs" />
+    <Compile Include="DBModels\VerifyNumberCodes.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201912301642505_SyncDatabase.resx">
+      <DependentUpon>201912301642505_SyncDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001071458416_notificationtableschanges.resx">
+      <DependentUpon>202001071458416_notificationtableschanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001141125107_altertablenotification.resx">
+      <DependentUpon>202001141125107_altertablenotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202001171429306_syncdb.resx">
+      <DependentUpon>202001171429306_syncdb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002101429072_addtableNotificationTypeScreenMapping.resx">
+      <DependentUpon>202002101429072_addtableNotificationTypeScreenMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002101621120_NotificationTablesColumnadded.resx">
+      <DependentUpon>202002101621120_NotificationTablesColumnadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002101638411_NotificationTablesColumnModified.resx">
+      <DependentUpon>202002101638411_NotificationTablesColumnModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005022203239_RemovedEntities.resx">
+      <DependentUpon>202005022203239_RemovedEntities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005040001503_RemovedEntities1.resx">
+      <DependentUpon>202005040001503_RemovedEntities1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
